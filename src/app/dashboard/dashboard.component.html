@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div *ngIf="loaderService.isLoading | async">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<br />
+<span class="toggle">
+  <mat-slide-toggle [(ngModel)]="isDarkTheme" (click)="changeTheme()">Dark Theme&nbsp;&nbsp;</mat-slide-toggle>
+</span>
+<br /><br /><br />
+<marquee *ngIf="posts.length>0">Click on Card to expand Post</marquee>
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
+  <mat-card (click)="expandCard(post); $event.stopPropagation()" class="mat-elevation-z8" *ngFor="let post of posts" fxFlex="calc(40%-25px)" fxFlex.sm="calc(50%-25px)">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{post.heading}}</mat-card-title>
+      <mat-card-subtitle>Written By: {{post.email}}</mat-card-subtitle>
+      <mat-card-subtitle>Posted On: {{post.postedOn}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="size" [innerHTML]="post.content"></div>
+      <!-- <p class="size">
+        {{post.content}}
+      </p> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <span>Tags: </span><mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+        <mat-chip class="example-box" *ngFor="let tags of post.tags">
+          {{tags}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-actions>
+  </mat-card>
+</div>

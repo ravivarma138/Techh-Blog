@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{post.heading}}</h2>
+<p>Written By: {{post.email}}</p>
+<p>Posted On: {{post.postedOn}}</p>
+<mat-dialog-content>
+    <div class="size" [innerHTML]="post.content"></div>
+    <!-- <h3 style="white-space: pre-line">{{post.content}}</h3> -->
+</mat-dialog-content>
+<mat-dialog-actions>
+    <span>Tags:&nbsp;</span>
+    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+        <mat-chip class="example-box" *ngFor="let tags of post.tags">
+            {{tags}}
+        </mat-chip>
+    </mat-chip-list>
+    <div style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+        <button class="bottomRight" mat-raised-button color="primary" mat-dialog-close style="float: right;">Close</button>
+    </div>
+    <br/>
+    
+</mat-dialog-actions>

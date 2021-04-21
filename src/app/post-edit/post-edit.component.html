@@ -1,0 +1,53 @@
+<div class="container">
+  <button (click)="dialogRef.close()" matTooltip="Close" class="close"><i class="fa fa-times"
+      aria-hidden="true"></i></button>
+  <h1>Add Post!</h1>
+  <p *ngIf="fieldFlag">{{validateValue}}</p>
+  <br /><br /><br />
+  <mat-form-field appearance="fill">
+    <mat-label>Heading</mat-label>
+    <input [(ngModel)]="post.heading" matInput>
+  </mat-form-field>
+
+  <!-- <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea [(ngModel)]="post.content" autosize class="my-textarea" matInput></textarea>
+    </mat-form-field> -->
+
+  <form [formGroup]="editorForm">
+    <div id="quill">
+      <div style="text-align: center;">
+        <span>
+            Content
+        </span>
+      </div>
+      <quill-editor formControlName="content" placeholder="Enter Content Here" required>
+      </quill-editor>
+    </div>
+  </form>
+  <br/><br/>
+
+  <mat-form-field appearance="fill" class="example-chip-list">
+    <mat-label>Tags</mat-label>
+    <mat-chip-list #chipList aria-label="Tag selection">
+      <mat-chip *ngFor="let tag of tags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+        {{tag}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Please Enter tags for the post..." #tagInput [formControl]="tagControl"
+        [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+
+  <button class="button" (click)="savePost()" mat-raised-button color="primary">Submit</button>
+
+
+</div>

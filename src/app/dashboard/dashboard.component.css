@@ -1,0 +1,52 @@
+.mat-card {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 600px;
+    
+    display:flex;
+    flex-direction: column;
+}
+  
+.mat-card-header {
+    flex-shrink: 0;
+}
+  
+.mat-card-content{
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.example-header-image {
+    background-image: url('src/assets/images/user.png');
+    background-size: cover;
+}
+
+.toggle {
+    float: right;
+    margin-left: 10px;
+}
+
+.example-box.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-chip .cdk-drop-list-dragging {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .size {
+      font-size: 18px;
+      white-space: pre-line;
+  }
+
+  ::ng-deep .mat-card{
+
+    border: 55px !important;
+    border-radius: 30px !important;
+    border: #000 !important;
+   }
+
+
+
+  

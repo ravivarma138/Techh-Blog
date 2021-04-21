@@ -1,0 +1,36 @@
+
+<div class="sidenav">
+    <div class="login-main-text">
+       <h2>Application<br> Login Page</h2>
+       <p>Login or SignUp from here to access.</p>
+    </div>
+    
+ </div>
+ <div class="main">
+    <marquee><h1 class="fsize">Tech Blog</h1></marquee>
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+          <div class="d-flex justify-content-center">
+         <mat-spinner  *ngIf="spinnerFlag" style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+         </div>
+          <p style="color:red;" *ngIf="loginFlag">Invalid Credentials, Please Try Again!</p>
+          <!-- <textarea autosize class="my-textarea"> -->
+        <!-- </textarea> -->
+          <form #f="ngForm">
+             <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter valid email like [test@test.com]." [(ngModel)]="login.username" name="username" placeholder="User Name" required>
+             </div>
+             <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)]="login.password" name = "password" placeholder="Password" required>
+             </div>
+             <button type="button" class="btn btn-primary" matTooltip="Login" [disabled]="!f.valid" (click)="loginUser()">Login</button>&nbsp;&nbsp;&nbsp;
+             <button type="button" class="btn btn-secondary" matTooltip="Sign Up" (click)="openSignUpDialog()" >Sign Up</button>
+             <br/><br/>
+          </form>
+       </div>
+    </div>
+ </div>
+
+ <router-outlet></router-outlet>

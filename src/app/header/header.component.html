@@ -1,0 +1,30 @@
+<mat-toolbar  color="primary">
+    <mat-toolbar-row>
+      <span>Dashboard</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item>
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+        <button (click)="addPost()" mat-menu-item>
+          <mat-icon>post_add</mat-icon>
+          <span>Add Post</span>
+        </button>
+        <button (click)="talkButton()" mat-menu-item>
+          <mat-icon>chat</mat-icon>
+          <span>Let's chat</span>
+        </button>
+        <button (click)="logOut()" mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+

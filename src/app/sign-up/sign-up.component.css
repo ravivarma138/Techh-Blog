@@ -1,0 +1,14 @@
+h1,p {
+    text-align:center;
+}
+
+/* .wrap {
+    height: 800px;
+    overflow-y: auto;
+} */
+@media screen and (max-width: 520px) {
+    .wrap {
+        overflow: auto;
+        height: 600px;
+    }
+  }
