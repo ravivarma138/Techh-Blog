@@ -21,7 +21,8 @@
             "aot": true,
             "assets": [
               "src/favicon.png",
-              "src/assets"
+              "src/assets",
+              "_redirects"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -31,7 +32,9 @@
               "./node_modules/quill/dist/quill.core.css",
               "./node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": ["./node_modules/quill/dist/quill.js"]
+            "scripts": [
+              "./node_modules/quill/dist/quill.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -122,6 +125,10 @@
               "devServerTarget": "blog:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
